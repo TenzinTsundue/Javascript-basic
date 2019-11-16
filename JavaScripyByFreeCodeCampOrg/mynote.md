@@ -1175,3 +1175,84 @@ console.log(S);
 ```
 
 Prevent Object Mutaion <br>
+object.freeze
+
+```
+function freezeObj() {
+  "use strict";
+  const MATH_CONSTANTS = {
+    PI: 3.14
+  };
+  Object.freeze(MATH_CONSTANTS);
+
+  try {
+    MATH_CONSTANTS.PI = 99;
+  } catch (ex) {
+    console.log(ex);
+  }
+  return MATH_CONSTANTS.PI;
+}
+
+const PI = freezeObj();
+//TypeError: Cannot assign to read only property 'PI' of object
+```
+
+Use Arrow Functions to write Concise **Anonymous Functions**<br>
+
+```
+const magic = () => new Data();
+// Same to
+const magic = function() {
+  return new Data();
+}
+```
+
+Write Arrow Functions with Parameters<br>
+
+```
+var myConcat = (arr1, arr2) => arr1.concat(arr2);
+console.log(myConcat([2, 3], [4, 5, 6]));
+// Same to
+var myConcat = function(arr1, arr2) {
+  return arr1.concat(arr2);
+};
+
+console.log(myConcat([2, 3], [4, 5, 6]));
+```
+
+Write Higher Order Arrow Functions<br>
+map, filter, reduce
+
+```
+const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
+
+const squareList = arr => {
+  const squaredIntegers = arr
+    .filter(num => Number.isInteger(num) && num > 0)
+    .map(x => x * x);
+  return squaredIntegers;
+};
+
+const squaredIntegers = squareList(realNumberArray);
+console.log(squaredIntegers);
+```
+
+Write Higher Order Arrow Functions<br>
+default parapeter
+
+```
+const increment = (function() {
+  return function increment(number, value = 1) {
+    //if value is not passed then value will set automatically to one
+    return number + value;
+  };
+})();
+console.log(increment(5, 2));
+console.log(increment(5));
+```
+
+Use the Rest Operator with Function Parameters<br>
+
+```
+
+```
