@@ -1,13 +1,16 @@
 # Javascript note
 
 ### Comments
+
 var number = 5; // in-line comment
 
-/* this is a
-mutiline comment */
+/_ this is a
+mutiline comment _/
 
 ### Data types and variable
+
 **Datatype**
+
 - undefined
 - null
 - boolean
@@ -17,20 +20,23 @@ mutiline comment */
 - object
 
 **Variable**
- ```
- var myName = "apple";    // useable throughout the pragram
 
- myName = 8;
+```
+var myName = "apple";    // useable throughout the pragram
 
- let ourName = "freeCodeCamp" ; // useable only in the scope where you declear let
+myName = 8;
 
- const pi = 3.14; // Can't be chage like var
- ```
+let ourName = "freeCodeCamp" ; // useable only in the scope where you declear let
+
+const pi = 3.14; // Can't be chage like var
+```
+
 ```
 var a; // declear
 var b = 2; // declear and assign
 conlose.log(a) //show in console
 ```
+
 > javascript is case sensitive
 > use of camelcase is a good practice eg: thisIsACamalCase
 
@@ -38,12 +44,14 @@ conlose.log(a) //show in console
 var sum = 10 + 10;
 console.log(sum); //difference (-), multiplication (*), division (/), remainder (%) works the same
 ```
+
 ```
 var myVar = 87;
 myVar = myVar + 1
 or
 myVar++; // Increment and -- for Decrement
 ```
+
 ```
 a = a + 12 // same to a += 12;  //work same with -*/
 ```
@@ -52,10 +60,12 @@ a = a + 12 // same to a += 12;  //work same with -*/
 var myStr = " I am a \" double quoted\" string insdie" // (\) is a escape character
 var myStr = `' I am a \" double quoted\" string insdie'`   // (') and then (`)
 ```
+
 Code output
-- \' single quote
-- \" double qoute
-- \\ backslash
+
+- \\' single quote
+- \\" double qoute
+- \\\ backslash
 - \n newline
 - \r carriage return
 - \t tab
@@ -63,6 +73,7 @@ Code output
 - \f form feed
 
 **Concatenate (+)**
+
 ```
 var ourStr = "I come first " + "I come second." ;
 or
@@ -73,6 +84,7 @@ console.log(ourStr);
 ```
 
 Length of the string: <br>
+
 ```
 var name = "Tenzin";
 nameLength = name.length;
@@ -82,14 +94,17 @@ console.log(name);
 
 Bracket notation to find specific character in the string: <br>
 javascript is a 0 base indexing
+
 ```
 var name = "Tenzin";
 firstLetter = name[0];
 
 console.log(firstLetter);
 ```
->string are immutable, so individual character of string can't be changed
-for the last character of the string:
+
+> string are immutable, so individual character of string can't be changed
+> for the last character of the string:
+
 ```
 var name = "Tenzin";
 lastLetter = name[-1];   // can find 2nd or 3rd.. last letter by -2, -3 ...
@@ -98,6 +113,7 @@ console.log(lastLetter);
 ```
 
 Word Blanks (mad libs game)<br>
+
 ```
 function wordBlanks(myNoun, myAdjective, myVerb, myAdverb) {
   var result = "";
@@ -111,26 +127,32 @@ console.log(wordBlanks("bike", "slow", "flew", "quickly"));
 ```
 
 **Array []**<br>
+
 ```
 var ourArray = ["John", 23]; // eg of array
 var ourArray = [["Bulls], 23],["White"]]; //eg of nested array
 ```
 
 Access arry data with indexes <br>
+
 ```
 var ourArray = [50, 60, 70];
 var ourData = ourArray[0]; // equals 50
 
 console.log(ourData);
 ```
+
 modify Array Data with Indexes
+
 ```
 var ourArray = [50, 60, 70];
 ourArray[1] = 45; // ourArray now equals [50, 45, 70]
 
 console.log(ourArray);
 ```
+
 For multidimensional array: double bracket notation<br>
+
 ```
 var ourArray = [[50, 60, 70],[51, 61, 71],[52, 62, 72]];
 var myData = ourArray[1][0];
@@ -139,6 +161,7 @@ console.log(mData);
 ```
 
 Adding element in end of array with a **push()**<br>
+
 ```
 var ourArray = [50, 60, 70];
 ourArray.push(40); //we can even push (["happy", "joy"])
@@ -147,20 +170,25 @@ console.log(ourArray);
 ```
 
 Removing last element in an array with a **pop()**<br>
+
 ```
 var ourArray = [50, 60, 70];
 ourArray.pop(); // removing last element
 
 console.log(ourArray);
 ```
-Removing first element in an array with a **pop()**<br>
+
+Removing first element in an array with a **shift()**<br>
+
 ```
 var ourArray = [50, 60, 70];
 ourArray.shift(); // removing first element
 
 console.log(ourArray);
 ```
+
 Adding element in fist of array with a **unshift()**<br>
+
 ```
 var ourArray = [50, 60, 70];
 ourArray.unshift(40); //we can even unshift (["happy", "joy"])
@@ -177,7 +205,9 @@ function ourReusableFunction() {
 
 ourReusableFunction();
 ```
+
 passing value to function with arguments<br>
+
 ```
 function ourFuncitonWithArgs(a, b) {
   console.log(a - b);
@@ -187,8 +217,10 @@ ourFuncitonWithArgs(4, 2);
 ```
 
 Global scope and Functions<br>
->variable outside function is Global scope
->when inside funcion defining variable with using **var** keyword become global 
+
+> variable outside function is Global scope
+> when inside funcion defining variable without using **var** keyword become global
+
 ```
 var myGlobal = 10;  // Global variable
 
@@ -200,7 +232,7 @@ function fun1() {
   */
 }
 
-function fun2() { 
+function fun2() {
   var output = "";
   if (typeof myGlobal != "undefined") {
     output += "myGlobal: " + myGlobal;
@@ -221,6 +253,7 @@ fun2();
 ```
 
 Local scope and Funciton<br>
+
 ```
 function myLocalScope() {
   var myVar = 20;
@@ -229,19 +262,22 @@ function myLocalScope() {
 
 myLocalScope();
 ```
+
 > Local varible take precedence over Global variabel with a same name
+
 ```
 var simple = 10;
 function fun1() {
-  var simple = 20;  
+  var simple = 20;
   return simple;
 }
 
-console.log(fun1());  // output will be 20 
+console.log(fun1());  // output will be 20
 console.log(simple);  // output will be 10
 ```
 
 Return a value in Function <br>
+
 ```
 function addFive(num) {
   return num + 5;
@@ -249,7 +285,9 @@ function addFive(num) {
 
 console.log(addFive(10));   // Return 15
 ```
+
 Assignment with a return values<br>
+
 ```
 var changed = 0;
 
@@ -259,10 +297,11 @@ function change(num) {
 
 changed = change(4);
 
-console.log(changed); 
+console.log(changed);
 ```
 
 Stand in line <br>
+
 ```
 function nextLine(arr, num) {
   arr.push(num);
@@ -276,6 +315,7 @@ console.log("After: " + JSON.stringify(arr));
 ```
 
 Boolean Values <br>
+
 ```
 function welcomeToBooleans() {
   return true;
@@ -284,7 +324,9 @@ if (true) {
   console.log("Its True");
 }
 ```
+
 If statements<br>
+
 ```
 function ourTrueOrFalse(isItTrue) {
   if (isItTrue) {
@@ -297,6 +339,7 @@ console.log(ourTrueOrFalse(true));
 ```
 
 Comparasion with the Equality Operator <br>
+
 ```
 function testEqual12(val) {
   if (val == 12) {
@@ -309,14 +352,17 @@ console.log(testEqual12(12));
 ```
 
 Comparision wiht the **strict equality operator (===)**
+
 > when == there is type conversion
-> but when === not type conversion
+> but when === no type conversion
+
 ```
 3 === 3 //true
-3 == 3  //true  
+3 == 3  //true
 3 === '3'   //false
 3 == '3'    //true due to type conversion
 ```
+
 ```
 //code
 function testString(val) {
@@ -330,6 +376,7 @@ console.log(testString("7"));  //Result Not Equal
 ```
 
 Comparision wiht the **Inequality (!=) and strick inequility (!==)**<br>
+
 ```
 function testString(a, b) {
   if (a !== b) {
@@ -340,7 +387,9 @@ function testString(a, b) {
 
 console.log(testString(7, "7")); //Result Not Equal
 ```
+
 Comparasions with the logical and operator<br>
+
 ```
 function testGreaterThan(val) {
   if (val > 100) {  //equally work with less then <
@@ -354,8 +403,9 @@ function testGreaterThan(val) {
 
 console.log(testGreaterThan(76));
 ```
+
 ```
-function testGreaterOrEqual(val) { 
+function testGreaterOrEqual(val) {
   if (val >= 100) { //equally work wiht less then equal to <=
     return "100 or Over";
   }
@@ -365,7 +415,8 @@ function testGreaterOrEqual(val) {
 console.log(testGreaterThan(76));
 ```
 
-nested if **(AND = && Or = ||)**<br> 
+nested if **(AND = && Or = ||)**<br>
+
 ```
 function testLogicalAnd(val) {
     if (val <= 50 && val >= 25) {  //&& And
@@ -375,6 +426,7 @@ function testLogicalAnd(val) {
 
 console.log(testLogicalAnd(43));
 ```
+
 ```
 unction testLogicalAnd(val) {
   if (val < 10 || val > 20) {
@@ -388,6 +440,7 @@ console.log(testLogicalAnd(15));
 ```
 
 Else statement <br>
+
 ```
 function testElse(val) {
   var result = "";
@@ -404,6 +457,7 @@ console.log(testElse(3));
 ```
 
 Else If statements<br>
+
 ```
 function testElseIf(val) {
   if (val > 10) {
@@ -419,9 +473,11 @@ console.log(testElseIf(6));
 ```
 
 Logical order in If Else statements <br>
+
 > order is important in if else stamenets cus once the first condition is met, it will not check the rest of the condition.
 
 Golf code <br>
+
 ```
 var names = [
   "Hole-in-one",
@@ -454,6 +510,7 @@ console.log(golfScore(5, 4));
 ```
 
 Switch statement <br>
+
 ```
 function caseInSwitch(val) {
   var answer = "";
@@ -479,7 +536,9 @@ function caseInSwitch(val) {
 
 console.log(caseInSwitch(3));
 ```
+
 Multiple Identical Options in Switch Statements <br>
+
 ```
 function sequentialSizes(val) {
   var answer = "";
@@ -505,9 +564,11 @@ function sequentialSizes(val) {
 
 console.log(sequentialSizes(1));
 ```
+
 Replacing if else chains with switch <br>
 
 Returning Boolean Values from Functions<br>
+
 ```
 function isLess(a, b) {
   if (a < b) {
@@ -527,6 +588,7 @@ console.log(isLess(10, 15));
 ```
 
 Returning Early Pattern from Functions <br>
+
 ```
 function abTest(a, b) {
 
@@ -541,6 +603,7 @@ console.log(abTest(4, 4));
 ```
 
 Counting Cards <br>
+
 ```
 var count = 0;
 
@@ -577,6 +640,7 @@ console.log(cc(2));
 ```
 
 Build JavaScript Objects <br>
+
 ```
 var ourDog = {
   // object define by curly braces
@@ -593,7 +657,9 @@ var outDog = {
     "friends" : []
 };
 ```
+
 Accessing Object properties with dot notation <br>
+
 ```
 var testObj = {
   hat: "ballcap",
@@ -610,6 +676,7 @@ console.log("hat value : " + hatValue + "\nshirt Value: " + shirtValue);
 Accessing Object properties wiht Bracket Notation <br>
 
 > bracket notation use when object properties has spacein it eg: "the drink" : "wine"
+
 ```
 var testObj = {
   "an entree": "hamburger",
@@ -624,6 +691,7 @@ console.log(entreeValue + " and " + drinkValue);
 ```
 
 Accessing Object Properties with Variables<br>
+
 ```
 var testObj = {
   12: "Namath",
@@ -638,6 +706,7 @@ console.log(player);
 ```
 
 Updating Object properties<br>
+
 ```
 var ourDog = {
   name: "Norbu",
@@ -649,6 +718,7 @@ console.log(ourDog.name);
 ```
 
 Add New Properties to an Object<br>
+
 ```
 var ourDog = {
   name: "Norbu",
@@ -661,6 +731,7 @@ console.log(ourDog.bark);
 ```
 
 Delete property from an Object <br>
+
 ```
 var ourDog = {
   name: "Norbu",
@@ -673,6 +744,7 @@ console.log(ourDog);
 ```
 
 Using Objects for lookups<br>
+
 ```
 switch (val) {
         case "alpha":
@@ -704,6 +776,7 @@ console.log(phoneticLookup("alpha"));
 ```
 
 Testing Objects for Properties<br>
+
 ```
 var myObj = {
   gift: "pony",
@@ -723,6 +796,7 @@ console.log(checkObj("apple"));
 ```
 
 Manipulating Complex Objects<br>
+
 ```
 var myMusic = [
   {
@@ -740,6 +814,7 @@ var myMusic = [
 ```
 
 Accessing Nested Objects <br>
+
 ```
 var myStorage = {
   car: {
@@ -760,6 +835,343 @@ console.log(gloceBoxContents);
 
 Accessing Nested Arrays <br>
 
+```
+var myPlants = [
+  {
+    type: "flowers",
+    list: ["rose", "tulip", "dandelion"]
+  },
+  {
+    type: "trees",
+    list: ["fir", "pine", "birch"]
+  }
+];
 
+var secondTree = myPlants[1].list[1];
 
+console.log(secondTree);
+```
 
+Record collection <br>
+
+```
+var collection = {
+  "2548": {
+    album: "Slippery When Wet",
+    artist: "Bon Jovi",
+    tracks: ["Let It Rock", "You Give Love a Bad Name"]
+  },
+  "2468": {
+    album: "1998",
+    artist: "Prince",
+    track: ["1999", "Little Red Corvette"]
+  },
+  "5439": {
+    album: "ABBA Gold"
+  }
+};
+
+// Keep a copy of the collection for tests
+var collectionCopy = JSON.parse(JSON.stringify(collection));
+
+function updateRecords(id, prop, value) {
+  if (value === "") {
+    delete collection[id][prop];
+  } else if (prop === "track") {
+    collection[id][prop] = collection[id][prop] || [];
+    collection[id][prop].push(value);
+  } else {
+    collection[id][prop] = value;
+  }
+
+  return collection;
+}
+updateRecords(2468, "track", "test");
+updateRecords(2468, "testProp", "test");
+console.log(updateRecords(5439, "artist", "ABBA"));
+```
+
+Iterate with **while** loop <br>
+
+```
+var myArry = [];
+
+var i = 0;
+while (i < 5) {
+  myArry.push(i);
+  i++;
+}
+
+console.log(myArry);
+```
+
+Iterate with **for** loop <br>
+
+```
+var ourArray = [];
+
+for (var i = 0; i < 5; i++) {
+  ourArray.push(i);
+}
+
+console.log(ourArray);
+```
+
+Iterate odd number with a for loop <br>
+
+```
+var ourArray = [];
+
+for (var i = 1; i < 10; i += 2) { //can do increment of 2 or any number
+  ourArray.push(i);
+}
+
+console.log(ourArray);
+```
+
+Count backward with the for loop <br>
+
+```
+var myArray = [];
+
+for (i = 10; i > 0; i--) {
+  myArray.push(i);
+}
+
+console.log(myArray);
+```
+
+Iterating Through an Array with a For loop<br>
+
+```
+var myArray = [1, 2, 3, 4, 5];
+var ourTotal = 0;
+
+for (var i = 0; i < myArray.length; i++) {
+  ourTotal = ourTotal + myArray[i];
+}
+
+console.log(ourTotal);
+```
+
+Nesting For loop<br>
+
+```
+function multiplyAll(arr) {
+  var product = 1;
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < arr[i].length; j++) {
+      product *= arr[i][j];
+    }
+  }
+  return product;
+}
+
+var product = multiplyAll([
+  [2, 2],
+  [3, 3]
+]);
+
+console.log(product);
+```
+
+Iterate with Do... While loops
+
+```
+var myArray = [];
+var i = 10;
+
+do {
+  myArray.push(i);
+  i++;
+} while (i < 5);
+
+console.log(i, myArray);
+```
+
+Profile lookup<br>
+
+```
+var contacts = [
+  {
+    firstName: "Akira",
+    lastName: "Laine",
+    number: "08198345",
+    likes: ["pizza", "coding", "brownie"]
+  },
+  {
+    firstName: "Harry",
+    lastName: "Potter",
+    number: "45798479",
+    likes: ["momo", "bread", "chicken"]
+  },
+  {
+    firstName: "Kristina",
+    lastName: "Larry",
+    number: "495938798",
+    likes: ["pizza", "bear"]
+  }
+];
+
+function lookupProfile(name, prop) {
+  for (var i = 0; i < contacts.length; i++) {
+    if (contacts[i] == name) {
+      return contacts[i][prop] || "No such property";
+      //console.log(contacts[i]);
+    }
+  }
+  return "No such contact";
+}
+
+var data = lookupProfile("Akira", "number");
+
+console.log(data);
+```
+
+Generate Random Fractions <br>
+
+```
+function randomFunction() {
+  return Math.random();
+}
+
+console.log(randomFunction());
+```
+
+Generating Random Whole Numbers <br>
+
+```
+var randomNumberBetween0and19 = Math.floor(Math.random() * 20);
+
+console.log(randomNumberBetween0and19);
+```
+
+Generating Random Whole Numver within a Range <br>
+
+```
+function ourRandomRange(ourMin, ourMax) {
+  return Math.floor(Math.random() * (ourMax - ourMin) + ourMin);
+}
+
+console.log(ourRandomRange(5, 20));
+```
+
+Use the **parseInt** Function <br>
+it takes string and return an interger
+
+```
+function converToInteger(str) {
+  return parseInt(str);
+}
+
+console.log(converToInteger("56"));
+```
+
+Use the **parseInt** Function with a Radix <br>
+
+```
+function converToInteger(str) {
+  return parseInt(str, 2);  // is a base 2, so computer know its a binary number
+}
+
+console.log(converToInteger("10011"));
+```
+
+Use the Conditional (Ternary) Operator<br>
+replace if else statement with ternary <br>
+
+> condition ? statement-if-true : statement-if-false;
+
+```
+function isGreaterThen(a, b) {
+  return a > b ? "a is Greater" : "a is not greater";
+}
+
+console.log(isGreaterThen(14, 12));
+```
+
+```
+function checkEqual(a, b) {
+  return a === b;
+}
+
+console.log(checkEqual(12, 12));
+```
+
+Using Multiple Conditional (Ternary) Operators<br>
+
+```
+function checkSign(num) {
+  return num > 0 ? "Positibe" : num < 0 ? "Negative" : "Zero";
+}
+
+console.log(checkSign(-23));
+```
+
+## ES6
+
+Difference between the var and let Keywords<br>
+
+> let can't have duplication
+
+```
+// This code will show error due to catName duplication
+let catName = "Quincy";
+var quote;
+
+let catName = "Beau";
+
+console.log(catName);
+```
+
+Compare Scope od the var and let Keywords<br>
+
+```
+function checkScope() {
+  "use strict";
+  let i = "function scope";
+  if (true) {
+    let i = "block scope";
+    console.log("Block scope i is: ", i);
+  }
+  console.log("Function scope i is: ", i);
+  return i;
+}
+
+checkScope();
+```
+
+Declare a Read-Only Variable with the const Keyword<br>
+
+> const have all the feature of let and also its a read only
+
+```
+function printManyTimes(str) {
+  "use strict";
+
+  const SENTENCE = str + " is cool !";  // Uppercase for const
+
+  for (let i = 0; i < str.length; i += 2) {
+    console.log(SENTENCE);
+  }
+}
+printManyTimes("FreeCodeCamp");
+```
+
+Mutate an Array Declared with const<br>
+
+```
+const S = [5, 6, 7];
+
+function editInPlace() {
+  "use strict";
+  //s = [2, 5, 7]  is not allowed
+
+  S[0] = 2;
+  S[1] = 5;
+  S[2] = 7;
+}
+console.log(S);
+```
+
+Prevent Object Mutaion <br>
