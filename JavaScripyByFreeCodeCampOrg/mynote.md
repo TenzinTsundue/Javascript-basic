@@ -1187,7 +1187,7 @@ function freezeObj() {
 
   try {
     MATH_CONSTANTS.PI = 99;
-  } catch (ex) {
+  } catch (ex) {    //ex for exception
     console.log(ex);
   }
   return MATH_CONSTANTS.PI;
@@ -1238,7 +1238,7 @@ console.log(squaredIntegers);
 ```
 
 Write Higher Order Arrow Functions<br>
-default parapeter
+default parameter
 
 ```
 const increment = (function() {
@@ -1251,8 +1251,320 @@ console.log(increment(5, 2));
 console.log(increment(5));
 ```
 
-Use the Rest Operator with Function Parameters<br>
+Use the **Rest Operator(...)** with Function Parameters<br>
 
 ```
+const sum = (function() {
+  return function sum(...args) {
+    return args.reduce((a, b) => a + b, 0);
+  };
+})();
+console.log(sum(1, 2, 3, 4));
+```
 
+Use the **Spread Operator(...)** to Evaluate attays in-place<br>
+spread and array into its insividual parts
+
+```
+const arr1 = ["JAN", "FEB", "MAR", "APR", "MAY"];
+let arr2;
+(function() {
+  arr2 = arr1;
+  arr1[0] = "potato";
+})();
+console.log(arr2);
+// Output [ 'potato', 'FEB', 'MAR', 'APR', 'MAY' ] cud arr2 canges with arr1
+
+const arr1 = ["JAN", "FEB", "MAR", "APR", "MAY"];
+let arr2;
+(function() {
+  arr2 = [...arr1];
+  arr1[0] = "potato";
+})();
+console.log(arr2);
+// Output [ 'JAN', 'FEB', 'MAR', 'APR', 'MAY' ] cud arr2 is spread(equal to the content) of arr1, not equal
+```
+
+Use _Destructuring Assignment_ to assign variable from objects
+
+```
+var voxel = {x: 3.6, y: 7.4, z: 6.54};
+
+var x = voxel.x; // x = 3.6
+var y = voxel.y;
+var z = voxel.z;
+//OR
+//assigning object into the variable
+const {x:a, y:b, z:c} = voxel;
+```
+
+```
+const AVG_TEMPERATURES = {
+  today: 77.5,
+  tomorrow: 79
+};
+
+function getTempOfTmrw(avgTemperatures) {
+  "use strict";
+
+  const { tomorrow: tempOfTomorow } = avgTemperatures;
+
+  return tempOfTomorow;
+}
+
+console.log(getTempOfTmrw(AVG_TEMPERATURES));
+```
+
+Destructuring Assignment with Nested Objects<br>
+
+```
+const LOCAL_FORCAST = {
+  today: { min: 72, max: 83 },
+  tomorrow: { min: 73.3, max: 84.6 }
+};
+
+function getMaxOfTmrw(forecast) {
+  "use strict";
+
+  const {
+    tomorrow: { max: maxOfTomorrow }
+  } = forecast;
+
+  return maxOfTomorrow;
+}
+
+console.log(getMaxOfTmrw(LOCAL_FORCAST));
+```
+
+Use Destructuring Assignment to Assign Variabales from Arrays
+
+```
+const [z, x, , y] = [1, 2, 3, 4, 5, 6];
+console.log(z, x, y);
+//Output: 1 2 4
+
+let a = 8,
+  b = 6;
+(() => {
+  "use strict";
+  [a, b] = [b, a];
+})();
+console.log(a);
+console.log(b);
+/* Output: 6
+8*/
+```
+
+Use Destructuring Assignment with the Rest Operator <br>
+
+```
+const source = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+function removeFirstTwo(list) {
+  const [, , ...arr] = list;
+  return arr;
+}
+const arr = removeFirstTwo(source);
+console.log(arr);
+console.log(source);
+/* Output:
+[ 3, 4, 5,  6, 7, 8, 9, 10]
+[ 1, 2, 3, 4,  5, 6, 7, 8, 9, 10]
+ */
+```
+
+Use Destructuring Assignment to pass an object as a Function's Parameters <br>
+
+```
+const stats = {
+  max: 56.78,
+  standard_deviation: 4.34,
+  median: 34.54,
+  mode: 23.87,
+  min: -0.75,
+  average: 35.85
+};
+const half = (function() {
+  return function half({ max, min }) {
+    return (max + min) / 2.0;
+  };
+})();
+console.log(stats);
+console.log(half(stats));
+/* Output:
+{
+  max: 56.78,
+  standard_deviation: 4.34,
+  median: 34.54,
+  mode: 23.87,
+  min: -0.75,
+  average: 35.85
+}
+28.015
+*/
+```
+
+Create String using **Template Literals(`!)**<br>
+
+```
+const person = {
+  name: "Zosiac Hasbro",
+  age: 56
+};
+
+const greeting = `Hello, my name is ${person.name}!
+I am ${person.age} years old.`;
+
+console.log(greeting);
+```
+
+Write Concise Object Literal Declarations Using Simple Fields <br>
+
+```
+const createPerson = (name, age, gender) => {
+  return {
+    name: name,
+    age: age,
+    gender: gender
+  };
+};
+//OR
+const createPerson = (name, age, gender) => ({ name, age, gender });
+//when key and value are same
+
+console.log(createPerson("Zodiac Hasbro", 56, "male"));
+```
+
+Write Concise Declerative Functions <br>
+
+```
+const bicycle = {
+  gear: 2,
+  setGear(newGear) {
+    "use strict";
+    this.gear = newGear;
+  }
+};
+
+bicycle.setGear(3);
+console.log(bicycle.gear);
+```
+
+Use class Syntax to Define a Constructor Function <br>
+
+```
+class SpaceShuttle {
+  constructor(targetPlanet) {
+    this.targetPlanet = targetPlanet;
+  }
+}
+var zeus = new SpaceShuttle("Jupiter");
+
+console.log(zeus.targetPlanet);
+```
+
+```
+function makeClass() {
+  class Vegetable {
+    constructor(name) {
+      this.name = name;
+    }
+  }
+  return Vegetable;
+}
+const Vegetable = makeClass();
+const carrot = new Vegetable("carrot");
+console.log(carrot.name);
+```
+
+Using **getters** and **seters** to Control Access to an Object <br>
+
+```
+class Book {
+  constructor(author) {
+    this._author = author;
+  }
+  // getter
+  get writer() {
+    return this._author;
+  }
+  // setter
+  set writer(updatedAuther) {
+    this._author = updatedAuther;
+  }
+}
+```
+
+```
+function makeClass() {
+  class Thermostat {
+    constructor(temp) {
+      this._temp = (5 / 9) * (temp - 32);
+    }
+    get temperature() {
+      return this._temp;
+    }
+    set temperature(updatedTemp) {
+      this._temp = updatedTemp;
+    }
+  }
+  return Thermostat;
+}
+
+const Thermostat = makeClass();
+const thermos = new Thermostat(76);
+let temp = thermos.temperature;
+thermos.temperature = 26;
+temp = thermos.temperature;
+
+console.log(temp);
+```
+
+Understand the Differences Between import and require <br>
+
+```
+//string_function.js
+
+export const capitalizeString = str => str, toUpperCase();
+
+//index.js
+
+import { capitalizeString } from "./string_function"
+const cap = capitalizeString("Hello!");
+
+console.log(cap);
+```
+
+Use export to Reuse a Code Block <br>
+
+```
+const capitalizeString = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+export { capitalixeString };
+
+export const foo = "bar";
+export const bar = "foo";  // then we can import them into other file
+```
+
+Use \* to Import Everythind from a File <br>
+
+```
+import * as capitalizeStrings from "./capitalizeStrings";
+```
+
+Create an Export Fallback with export default <br>
+
+```
+export default function subtract(x, y) {
+  return x - y;
+}
+```
+
+Import a Default Export
+
+```
+import subtract from "math_functions";
+
+subtract(7,4);
 ```
